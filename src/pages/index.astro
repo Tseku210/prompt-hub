@@ -4,5 +4,7 @@ import { PromptHub } from "../components/PromptHub";
 ---
 
 <Layout>
-  <PromptHub client:only="react" />
+  <PromptHub client:only="react" >
+    <div class="w-full h-[calc(100vh-68px)]" slot="fallback"></div>
+  </PromptHub>
 </Layout>

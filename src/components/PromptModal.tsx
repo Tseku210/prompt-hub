@@ -88,7 +88,7 @@ const VariableInput = memo(function VariableInput({
       placeholder={placeholder}
       className="font-mono bg-transparent border-b border-muted-foreground outline-none focus:border-foreground text-foreground placeholder:text-muted-foreground/70 px-0 resize-none overflow-hidden inline-block"
       style={{
-        width: `${Math.max(value.length, placeholder.length)}ch`,
+        width: `${Math.max(value.length, placeholder.length) + 1}ch`,
         maxWidth: "100%",
         verticalAlign: "baseline",
       }}

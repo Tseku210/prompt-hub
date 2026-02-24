@@ -1,46 +1,39 @@
-# Astro Starter Kit: Basics
+# Prompt Hub
+
+A personal library for browsing, searching, and starring AI prompts. Built with Astro and deployed to Cloudflare. This project is built mostly by Sonnet 4.6 model. Also, one of the many experimental projects that I'm building to learn Claude Code.
+
+## Features
+
+- **Search** — fuzzy search across all prompts via Fuse.js
+- **Filter by category** — narrow prompts by tag
+- **Star prompts** — bookmark favorites, persisted in localStorage
+- **Modal view** — expand a prompt to read and copy the full text
+
+## Stack
+
+- [Astro 5](https://astro.build) — static site framework with file-based routing
+- [React 19](https://react.dev) — interactive island components
+- [Tailwind CSS v4](https://tailwindcss.com) — utility-first styling
+- [shadcn/ui](https://ui.shadcn.com) — accessible UI primitives
+- [Fuse.js](https://fusejs.io) — client-side fuzzy search
+- [Cloudflare Workers](https://workers.cloudflare.com) — edge deployment
+
+## Getting Started
 
 ```sh
-pnpm create astro@latest -- --template basics
+pnpm install
+pnpm dev        # http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```sh
+pnpm build        # Build to ./dist/
+pnpm preview      # Preview production build locally
+pnpm astro check  # TypeScript check for .astro files
+pnpm deploy       # Build + deploy to Cloudflare Workers
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Adding Prompts
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Prompts live in `src/data/prompts.ts`. Each entry follows the `Prompt` type defined in `src/types/prompt.ts`.
