@@ -10,5 +10,10 @@
   "observability": {
     "enabled": true,
   },
+  "routes": [
+    {
+      "pattern": "prompts.tseku.dev",
+      "custom_domain": true,
+    },
+  ],
 }
-

@@ -26,7 +26,10 @@ export const SearchBar = memo(function SearchBar({
       ) {
         e.preventDefault();
         inputRef.current?.focus();
-      } else if (e.key === "Escape" && document.activeElement === inputRef.current) {
+      } else if (
+        e.key === "Escape" &&
+        document.activeElement === inputRef.current
+      ) {
         inputRef.current?.blur();
       }
     }
@@ -35,8 +38,9 @@ export const SearchBar = memo(function SearchBar({
   }, []);
 
   return (
-    <InputGroup>
+    <InputGroup className="max-w-lg mx-auto h-10">
       <InputGroupInput
+        className="w-xl"
         ref={inputRef}
         value={value}
         onChange={(e) => onChange(e.target.value)}

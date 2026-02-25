@@ -37,16 +37,22 @@ export function PromptHub() {
 
   return (
     <div className="min-h-[calc(100vh-68px)] bg-background">
-      <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between flex-col md:flex-row gap-4">
-          <span className="font-bold text-lg tracking-tight">Prompt Hub</span>
-          <div className="w-full max-w-sm">
-            <SearchBar value={query} onChange={setQuery} />
-          </div>
-        </div>
-      </header>
-
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+        <h1 className="text-center text-5xl">
+          Prompts
+          <span className="text-sm">
+            by{" "}
+            <a
+              href="https://tseku.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Tseku
+            </a>
+          </span>
+        </h1>
+        <SearchBar value={query} onChange={setQuery} />
         <FilterBar
           categories={categories}
           activeCategory={activeCategory}

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Star } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Toggle } from "./ui/toggle";
 
 interface FilterBarProps {
   categories: string[];
@@ -18,47 +18,43 @@ export const FilterBar = memo(function FilterBar({
   onStarredToggle,
 }: FilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2 items-center">
-      <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mr-1">
-        Category
-      </span>
-      <button
-        onClick={() => onCategoryChange(null)}
-        className={cn(
-          "px-3 py-1 rounded-full text-xs font-medium transition-colors border",
-          activeCategory === null
-            ? "bg-primary text-primary-foreground border-primary"
-            : "border-border text-muted-foreground hover:text-foreground hover:border-input"
-        )}
-      >
-        All
-      </button>
-      {categories.map((cat) => (
-        <button
-          key={cat}
-          onClick={() => onCategoryChange(activeCategory === cat ? null : cat)}
-          className={cn(
-            "px-3 py-1 rounded-full text-xs font-medium transition-colors border",
-            activeCategory === cat
-              ? "bg-primary text-primary-foreground border-primary"
-              : "border-border text-muted-foreground hover:text-foreground hover:border-input"
-          )}
+    <div className="flex flex-col justify-center items-center gap-2">
+      <h2 className="text-sm text-muted-foreground">Categories</h2>
+      <div className="flex flex-wrap gap-2 items-center">
+        <Toggle
+          size="lg"
+          variant="outline"
+          onPressedChange={() => onCategoryChange(null)}
+          pressed={activeCategory === null}
         >
-          {cat}
-        </button>
-      ))}
-      <button
-        onClick={onStarredToggle}
-        className={cn(
-          "ml-auto px-3 py-1 rounded-full text-xs font-medium transition-colors border flex items-center gap-1.5",
-          starredOnly
-            ? "bg-primary text-primary-foreground border-primary"
-            : "border-border text-muted-foreground hover:text-foreground hover:border-input"
-        )}
-      >
-        <Star className="size-3" fill={starredOnly ? "currentColor" : "none"} />
-        Starred
-      </button>
+          All
+        </Toggle>
+        {categories.map((cat) => (
+          <Toggle
+            size="lg"
+            variant="outline"
+            key={cat}
+            onPressedChange={() =>
+              onCategoryChange(activeCategory === cat ? null : cat)
+            }
+            pressed={activeCategory === cat}
+          >
+            {cat}
+          </Toggle>
+        ))}
+        <Toggle
+          size="lg"
+          variant="outline"
+          onPressedChange={onStarredToggle}
+          pressed={starredOnly}
+        >
+          <Star
+            className="size-3"
+            fill={starredOnly ? "currentColor" : "none"}
+          />
+          Starred
+        </Toggle>
+      </div>
     </div>
   );
 });

@@ -135,7 +135,7 @@ export function PromptModal({
   return (
     <Dialog open={!!prompt} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        className="max-h-[90vh] flex flex-col max-w-5xl w-full gap-0 p-0"
+        className="max-h-[90vh] flex flex-col gap-0 p-0"
         showCloseButton={false}
       >
         <DialogHeader className="px-6 pt-6 pb-4 border-b border-border shrink-0">
