@@ -7,6 +7,7 @@ import { FilterBar } from "@/components/FilterBar";
 import { PromptGrid } from "@/components/PromptGrid";
 import { PromptModal } from "@/components/PromptModal";
 import type { Prompt } from "@/types/prompt";
+import { DitheringBall } from "./DitheringBall";
 
 export function PromptHub() {
   const [query, setQuery] = useState("");
@@ -38,20 +39,23 @@ export function PromptHub() {
   return (
     <div className="min-h-[calc(100vh-68px)]">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
-        <h1 className="text-center text-5xl mb-10">
-          Prompts
-          <span className="text-sm">
-            by{" "}
-            <a
-              href="https://tseku.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-foreground transition-colors"
-            >
-              Tseku
-            </a>
-          </span>
-        </h1>
+        <div>
+          <DitheringBall />
+          <h1 className="text-center text-5xl mb-10">
+            Prompts
+            <span className="text-sm">
+              by{" "}
+              <a
+                href="https://tseku.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:text-foreground transition-colors"
+              >
+                Tseku
+              </a>
+            </span>
+          </h1>
+        </div>
         <SearchBar value={query} onChange={setQuery} />
         <FilterBar
           categories={categories}
