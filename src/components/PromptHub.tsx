@@ -44,6 +44,7 @@ export function PromptHub() {
           <h1 className="text-center text-5xl mb-10">
             Prompts
             <span className="text-sm">
+              {" "}
               by{" "}
               <a
                 href="https://tseku.dev"
