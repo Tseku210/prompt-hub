@@ -36,9 +36,9 @@ export function PromptHub() {
   );
 
   return (
-    <div className="min-h-[calc(100vh-68px)] bg-background">
+    <div className="min-h-[calc(100vh-68px)]">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-6">
-        <h1 className="text-center text-5xl">
+        <h1 className="text-center text-5xl mb-10">
           Prompts
           <span className="text-sm">
             by{" "}

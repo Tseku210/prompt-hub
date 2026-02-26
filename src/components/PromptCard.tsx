@@ -67,7 +67,7 @@ export const PromptCard = memo(function PromptCard({
       </CardHeader>
 
       <CardContent>
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
           {prompt.description}
         </p>
       </CardContent>
