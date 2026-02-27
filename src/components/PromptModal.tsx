@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, memo } from "react";
-import { Copy, Check, Star, X } from "lucide-react";
+import { Copy, Check, Star, X, RotateCcw } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -132,6 +132,17 @@ export function PromptModal({
     await copy(fillTemplate(prompt.prompt, values));
   }
 
+  function handleReset() {
+    if (!prompt) return;
+    const initial: Record<string, string> = {};
+    for (const v of prompt.variables) {
+      initial[v.name] = "";
+    }
+    setValues(initial);
+  }
+
+  const hasValues = Object.values(values).some((v) => v.length > 0);
+
   function getFilledPrompt() {
     if (!prompt) return "";
     return fillTemplate(prompt.prompt, values);
@@ -250,6 +261,17 @@ export function PromptModal({
                     )}
                   />
                 </span>
+              </Button>
+              <div></div>
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={handleReset}
+                className="size-9"
+                title="Reset variables"
+                disabled={!hasValues}
+              >
+                <RotateCcw className="size-4" />
               </Button>
             </div>
           </div>
