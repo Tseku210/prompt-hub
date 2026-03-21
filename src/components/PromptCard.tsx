@@ -29,7 +29,7 @@ export const PromptCard = memo(function PromptCard({
 
   async function handleCopy(e: React.MouseEvent) {
     e.stopPropagation();
-    await copy(prompt.prompt);
+    await copy(prompt.body);
   }
 
   return (
@@ -82,14 +82,18 @@ export const PromptCard = memo(function PromptCard({
           <span className="relative size-4 shrink-0">
             <Copy
               className={cn(
-                "absolute inset-0 size-4 transition-all duration-200",
-                copied ? "opacity-0 scale-75" : "opacity-100 scale-100",
+                "absolute inset-0 size-4 transition-all duration-150",
+                copied
+                  ? "opacity-0 scale-75 blur-sm"
+                  : "opacity-100 scale-100 blur-none",
               )}
             />
             <Check
               className={cn(
                 "absolute inset-0 size-4 transition-all duration-200",
-                copied ? "opacity-100 scale-100" : "opacity-0 scale-75",
+                copied
+                  ? "opacity-100 blur-none scale-100"
+                  : "opacity-0 blur-sm scale-75",
               )}
             />
           </span>

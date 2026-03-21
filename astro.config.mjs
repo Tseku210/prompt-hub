@@ -13,13 +13,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   adapter: cloudflare(),
-  experimental: {
-    fonts: [
-      {
-        provider: fontProviders.fontsource(),
-        name: "JetBrains Mono",
-        cssVariable: "--font-jetbrains",
-      },
-    ],
-  },
+  fonts: [
+    {
+      provider: fontProviders.fontsource(),
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains",
+    },
+  ],
 });

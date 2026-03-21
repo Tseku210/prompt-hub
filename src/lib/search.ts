@@ -9,6 +9,7 @@ export interface Filters {
 }
 
 export function filterPrompts(prompts: Prompt[], filters: Filters): Prompt[] {
+
   const { query, activeCategory, starredOnly, starred } = filters;
 
   let results = prompts;
@@ -27,7 +28,7 @@ export function filterPrompts(prompts: Prompt[], filters: Filters): Prompt[] {
         { name: "title", weight: 4 },
         { name: "description", weight: 2 },
         { name: "category", weight: 1 },
-        { name: "prompt", weight: 1 },
+        { name: "body", weight: 1 },
       ],
       threshold: 0.4,
       includeScore: true,

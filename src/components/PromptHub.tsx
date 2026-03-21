@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback } from "react";
-import { prompts as allPrompts } from "@/data/prompts";
 import { filterPrompts } from "@/lib/search";
 import { useStarred } from "@/hooks/useStarred";
 import { SearchBar } from "@/components/SearchBar";
@@ -9,7 +8,11 @@ import { PromptModal } from "@/components/PromptModal";
 import type { Prompt } from "@/types/prompt";
 import { DitheringBall } from "./DitheringBall";
 
-export function PromptHub() {
+interface PromptHubProps {
+  prompts: Prompt[];
+}
+
+export function PromptHub({ prompts: allPrompts }: PromptHubProps) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [starredOnly, setStarredOnly] = useState(false);

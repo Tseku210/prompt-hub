@@ -86,11 +86,10 @@ const VariableInput = memo(function VariableInput({
         e.target.style.height = `${e.target.scrollHeight}px`;
       }}
       placeholder={placeholder}
-      className="font-mono bg-transparent border-b border-muted-foreground outline-none focus:border-foreground text-foreground placeholder:text-muted-foreground/70 px-0 resize-none overflow-hidden inline-block"
+      className="text-xs font-mono leading-relaxed bg-transparent border-b border-muted-foreground outline-none focus:border-foreground text-foreground placeholder:text-muted-foreground/70 px-0 resize-none overflow-hidden inline-block align-bottom"
       style={{
         width: `${Math.max(value.length, placeholder.length) + 1}ch`,
         maxWidth: "100%",
-        verticalAlign: "baseline",
       }}
     />
   );
@@ -117,7 +116,7 @@ export function PromptModal({
 
   // Only re-parse when the prompt changes, not on every keystroke
   const segments = useMemo(
-    () => (prompt ? parseTemplate(prompt.prompt) : []),
+    () => (prompt ? parseTemplate(prompt.body) : []),
     [prompt?.id],
   );
 
@@ -129,7 +128,7 @@ export function PromptModal({
   // Lazy — only compute the filled string when the user actually copies
   async function handleCopy() {
     if (!prompt) return;
-    await copy(fillTemplate(prompt.prompt, values));
+    await copy(fillTemplate(prompt.body, values));
   }
 
   function handleReset() {
@@ -145,7 +144,7 @@ export function PromptModal({
 
   function getFilledPrompt() {
     if (!prompt) return "";
-    return fillTemplate(prompt.prompt, values);
+    return fillTemplate(prompt.body, values);
   }
 
   function openInProvider(baseUrl: string) {

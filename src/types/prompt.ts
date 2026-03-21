@@ -10,5 +10,5 @@ export interface Prompt {
   description: string;
   category: string;
   variables: Variable[];
-  prompt: string;
+  body: string;
 }
