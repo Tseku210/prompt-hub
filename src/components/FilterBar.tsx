@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Star } from "lucide-react";
 import { Toggle } from "./ui/toggle";
+import { Separator } from "./ui/separator";
 
 interface FilterBarProps {
   categories: string[];
@@ -42,6 +43,7 @@ export const FilterBar = memo(function FilterBar({
             {cat}
           </Toggle>
         ))}
+        <Separator orientation="vertical" />
         <Toggle
           size="lg"
           variant="outline"
