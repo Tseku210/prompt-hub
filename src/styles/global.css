@@ -125,5 +125,10 @@
   }
   html {
     @apply font-sans;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* legacy Edge/IE */
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, modern Edge */
   }
 }
